@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Convite ao Cinema</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #options, #times {
+            display: none;
+            margin-top: 20px;
+        }
+        button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Convite ao Cinema</h1>
+    <p id="question">Prezada Elisa Bruno Maestrini, convido você para ir ao cinema amanhã comigo. Você aceitaria ir ao cinema comigo amanhã?</p>
+
+    <div id="answers">
+        <button onclick="showOptions('sim')">Sim</button>
+        <button onclick="showOptions('nao')">Não</button>
+    </div>
+
+    <div id="options">
+        <p>Escolha um dos horários e locais abaixo:</p>
+        <button onclick="selectTime('18:00 no Pátio Savassi')">18:00 no Pátio Savassi</button>
+        <button onclick="selectTime('21:00 no Pátio Savassi')">21:00 no Pátio Savassi</button>
+        <button onclick="selectTime('21:20 no BH Shopping')">21:20 no BH Shopping</button>
+    </div>
+
+    <p id="confirmation"></p>
+
+    <script>
+        function showOptions(answer) {
+            document.getElementById('answers').style.display = 'none';
+            if (answer === 'sim') {
+                document.getElementById('options').style.display = 'block';
+            } else {
+                document.getElementById('question').textContent = 'Obrigado pela resposta!';
+            }
+        }
+
+        function selectTime(time) {
+            document.getElementById('options').style.display = 'none';
+            document.getElementById('confirmation').textContent = 'Você escolheu: ' + time + '. Obrigado!';
+        }
+    </script>
+
+</body>
+</html>
